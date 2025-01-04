@@ -12,10 +12,12 @@ import nest_asyncio
 import edge_tts
 import os
 import _5_anonymize_voice_Main
+from dotenv import load_dotenv
 
+load_dotenv()
 # Configuration
-LLM_API_KEY = 'AIzaSyBfF0aEh8ygArvvRy5v2l1G_xoMSHwyCJk'  # Your Google Gemini API key
-TTS_API_KEY = 'AIzaSyDJv0ZQNvFqjirNh2PYPp5QV_FHHX5zOq8'  # Your Google Text-to-Speech API key
+LLM_API_KEY =os.getenv('LLM_API_KEY'); # Your Google Gemini API key
+TTS_API_KEY = os.getenv('TTS_API_KEY');  # Your Google Text-to-Speech API key
 LLM_ENDPOINT = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={LLM_API_KEY}'
 TTS_ENDPOINT = f'https://texttospeech.googleapis.com/v1/text:synthesize?key={TTS_API_KEY}'  # Google Text-to-Speech API endpoint
 

@@ -17,12 +17,16 @@ import textToSpeech
 import anonymize_voice_Main
 import logging
 import playing_anonymized_sound
+from dotenv import load_dotenv
+
+
 
 token = "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"
 login(token)
+load_dotenv()
 
 # Configuration
-LLM_API_KEY = 'AIzaSyBfF0aEh8ygArvvRy5v2l1G_xoMSHwyCJk'  # Your Google Gemini API key
+LLM_API_KEY = os.getenv('TTS_LLM_API_KEY'); # Your Google Gemini API key
 
 LLM_ENDPOINT = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={LLM_API_KEY}'
 
